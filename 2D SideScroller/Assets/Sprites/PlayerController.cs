@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
                     currentLayerMask = rightWallCheckLayer;
                     timer = 0.0f;
                 }
-                mainCamera.SendMessage("SetRightWallWalking");
+                
 
 
 
@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
                     timer = 0.0f;
                 }
 
-                mainCamera.SendMessage("SetLeftWallWalking");
+                
 
               
             }
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
                     currentLayerMask = ceilingCheckLayer;
                     timer = 0.0f;
                 }
-               mainCamera.SendMessage("SetCeilingWalking");
+              
                 
             }
             if (isGrounded && !(isRightWallWalking || isCeilingWalking || isLeftWallWalking))
@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour
                     currentLayerMask = ground;
                     timer = 0.0f;
                 }
-                mainCamera.SendMessage("SetGroundWalking");
+               
             }
             
         }

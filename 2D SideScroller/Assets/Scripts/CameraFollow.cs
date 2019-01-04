@@ -37,8 +37,7 @@ public class CameraFollow : MonoBehaviour
 
         
 
-        Debug.Log("Target Rotation: " + playerRotationDegrees);
-        Debug.Log("Camera Rotation: " + cameraRotationDegrees);
+      
      
         if (grounded)
         {
@@ -53,7 +52,7 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, --currentRotation);
-                    Debug.Log("Increasing Rotation");
+                    
                 }
             }
             if(startRotationDegree == 0 && playerRotationDegrees == 90)
@@ -61,7 +60,7 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, ++currentRotation);
-                    Debug.Log("Increasing Rotation");
+                    
                 }
             }
             if (startRotationDegree == 90 && playerRotationDegrees == 0)
@@ -69,7 +68,7 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, --currentRotation);
-                    Debug.Log("Increasing Rotation");
+                   
                 }
             }
             if (startRotationDegree == 90 && playerRotationDegrees == 180)
@@ -77,7 +76,7 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, ++currentRotation);
-                    Debug.Log("Increasing Rotation");
+                    
                 }
             }
             if (startRotationDegree == 180 && playerRotationDegrees == 90)
@@ -85,7 +84,7 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, --currentRotation);
-                    Debug.Log("Increasing Rotation");
+                    
                 }
             }
             if (startRotationDegree == 180 && playerRotationDegrees == 270)
@@ -93,7 +92,7 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, ++currentRotation);
-                    Debug.Log("Increasing Rotation");
+                    
                 }
             }
             if (startRotationDegree == 270 && playerRotationDegrees == 180)
@@ -101,7 +100,7 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, --currentRotation);
-                    Debug.Log("Increasing Rotation");
+                    
                 }
             }
             if (startRotationDegree == 270 && playerRotationDegrees == 0)
@@ -109,7 +108,7 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, ++currentRotation);
-                    Debug.Log("Increasing Rotation");
+                   
                 }
             }
             if(currentRotation % 360 == 0)
@@ -166,36 +165,6 @@ public class CameraFollow : MonoBehaviour
         //    }
         //}
     
-    }
-
-    public void SetRightWallWalking()
-    {
-        rightWallWalking = true;
-        rotate = true;
-        Debug.Log("SetRightWallWalking is called");
-    }
-    public void SetLeftWallWalking()
-    {
-        leftWallWalking = true;
-        rotate = true;
-        Debug.Log("SetLeftWallWalking is called");
-    }
-    public void SetCeilingWalking()
-    {
-        ceilingWalking = true;
-        rotate = true;
-        Debug.Log("CeilingWalking is called");
-    }
-    public void SetGroundWalking()
-    {
-        groundWalking = true;
-        rotate = true;
-        Debug.Log("SetGroundWalking is called");
-    }
-    public void ResetRotations()
-    {
-        decreaseRotation = -1;
-        increaseRotation = 1;
     }
     public void SetGrounded()
     {
