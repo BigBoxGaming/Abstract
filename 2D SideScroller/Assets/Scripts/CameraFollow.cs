@@ -30,15 +30,15 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per framed
     void Update()
     {
- 
+
 
         var playerRotationDegrees = target.transform.eulerAngles.z;
         var cameraRotationDegrees = gameObject.transform.eulerAngles.z;
 
-        
 
-      
-     
+
+
+
         if (grounded)
         {
             if (playerRotationDegrees == cameraRotationDegrees)
@@ -47,20 +47,20 @@ public class CameraFollow : MonoBehaviour
                 currentRotation = playerRotationDegrees;
             }
 
-            if(startRotationDegree == 0 && playerRotationDegrees == 270)
+            if (startRotationDegree == 0 && playerRotationDegrees == 270)
             {
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, --currentRotation);
-                    
+
                 }
             }
-            if(startRotationDegree == 0 && playerRotationDegrees == 90)
+            if (startRotationDegree == 0 && playerRotationDegrees == 90)
             {
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, ++currentRotation);
-                    
+
                 }
             }
             if (startRotationDegree == 90 && playerRotationDegrees == 0)
@@ -68,7 +68,7 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, --currentRotation);
-                   
+
                 }
             }
             if (startRotationDegree == 90 && playerRotationDegrees == 180)
@@ -76,7 +76,7 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, ++currentRotation);
-                    
+
                 }
             }
             if (startRotationDegree == 180 && playerRotationDegrees == 90)
@@ -84,7 +84,7 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, --currentRotation);
-                    
+
                 }
             }
             if (startRotationDegree == 180 && playerRotationDegrees == 270)
@@ -92,7 +92,7 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, ++currentRotation);
-                    
+
                 }
             }
             if (startRotationDegree == 270 && playerRotationDegrees == 180)
@@ -100,7 +100,7 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, --currentRotation);
-                    
+
                 }
             }
             if (startRotationDegree == 270 && playerRotationDegrees == 0)
@@ -108,10 +108,10 @@ public class CameraFollow : MonoBehaviour
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, ++currentRotation);
-                   
+
                 }
             }
-            if(currentRotation % 360 == 0)
+            if (currentRotation % 360 == 0)
             {
                 gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
             }
@@ -140,8 +140,8 @@ public class CameraFollow : MonoBehaviour
             //}
 
         }
-     
-        
+
+
         time += Time.deltaTime;
         Vector3 targetPosition = target.TransformPoint(new Vector3(0, 5, -10));
 
@@ -164,7 +164,7 @@ public class CameraFollow : MonoBehaviour
         //        time = 0f;
         //    }
         //}
-    
+
     }
     public void SetGrounded()
     {

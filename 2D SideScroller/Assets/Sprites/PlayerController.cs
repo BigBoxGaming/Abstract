@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
 
     //Input Variables
     public KeyCode interact;
-    public KeyCode primaryAttack;
     public KeyCode inventoryKey;
     public KeyCode left;
     public KeyCode right;
@@ -22,7 +21,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public Physics myPhysics;
 
-    public bool goingLeft = true;
+    public bool goingLeft;
     public bool goingRight;
     public bool goingDown;
     public bool goingUp;
@@ -43,16 +42,20 @@ public class PlayerController : MonoBehaviour
     public float timer = 0.0f;
     public LayerMask currentLayerMask;
     public LayerMask newLayerMask;
+    private Transform playerTransform;
+    public float playerCurrentFlipValue;
+
+    //Attacks
+    
 
     public Camera mainCamera;
-
     public float currentRotation;
    
 
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
-       
+        playerCurrentFlipValue = transform.rotation.y;
     }
 
     void Update()
@@ -60,7 +63,8 @@ public class PlayerController : MonoBehaviour
         
 
         timer += Time.deltaTime;
-        var playerTransform = gameObject.GetComponent<Transform>();
+        
+        playerTransform = gameObject.GetComponent<Transform>();
 
         //Allows player to rotate themselves in the air
         if (Input.GetKey(rotateLeft) && !(isLeftWallWalking || isCeilingWalking || isGrounded || isRightWallWalking))
@@ -111,7 +115,7 @@ public class PlayerController : MonoBehaviour
 
                 Physics2D.gravity = new Vector2(-9.91F, 0);
 
-                playerTransform.rotation = Quaternion.Euler(0, 0, -90f);
+              playerTransform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, -90f);
                 leftMovement = new Vector2(0, speed);
                 rightMovement = new Vector2(0, -speed);
                 jumpMovement = new Vector2(jumpForce, 0);
@@ -135,7 +139,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("changing gravity Left Wall");
                 Physics2D.gravity = new Vector2(9.91F, 0);
 
-                playerTransform.rotation = Quaternion.Euler(0, 0, 90f);
+                playerTransform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 90f);
                 leftMovement = new Vector2(0, -speed);
                 rightMovement = new Vector2(0, speed);
                 jumpMovement = new Vector2(-jumpForce, 0);
@@ -158,7 +162,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("changing gravity ceiling");
                 Physics2D.gravity = new Vector2(0, 9.91F);
 
-                playerTransform.rotation = Quaternion.Euler(0, 0, 180f);
+                playerTransform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 180f);
                 leftMovement = new Vector2(speed, 0);
                 rightMovement = new Vector2(-speed, 0);
                 jumpMovement = new Vector2(0, -jumpForce);
@@ -179,7 +183,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("changing gravity ground");
                 Physics2D.gravity = new Vector2(0, -9.81f);
-                playerTransform.rotation = Quaternion.Euler(0, 0, 0);
+               playerTransform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
                 leftMovement = new Vector2(-speed, 0);
                 rightMovement = new Vector2(speed, 0);
                 jumpMovement = new Vector2(0, jumpForce);
@@ -202,9 +206,12 @@ public class PlayerController : MonoBehaviour
             goingRight = false;
             if(!goingLeft)
             {
+               
+                
                 
                 goingLeft = true;
                 FlipPlayerSprite();
+
 
             }
           
@@ -217,6 +224,7 @@ public class PlayerController : MonoBehaviour
 
             if (!goingRight)
             {
+                
                 FlipPlayerSprite();
                 goingRight = true;
             
@@ -244,32 +252,21 @@ public class PlayerController : MonoBehaviour
             }  
             
             }
+          
 
     }
     
     void FlipPlayerSprite()
     {
+        Debug.Log("flig is called");
         goingRight = !goingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
-    }
- 
-    //void OnCollisionEnter2D(Collision2D other)
-    //{
-    //    Debug.Log(other);
-    //    if (other.gameObject.tag == "ground")
-    //    {
-    //        isGrounded = true;
-    //    }
-    //}
+       
 
-    //void OnCollisionExit2D(Collision2D other)
-    //{
-    //    if (other.gameObject.tag == "ground")
-    //    {
-    //        isGrounded = false;
-    //    }
-    //}
+            Vector3 newScale = transform.localScale;
+            newScale.x *= -1;
+            transform.localScale = newScale;
+        
+        
+    }
 
 }

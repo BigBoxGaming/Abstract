@@ -42,6 +42,7 @@ public class EnemyMovement : MonoBehaviour
             inRange = true;
             isClosestDistanceToPlayer = false;
             Debug.Log("entered");
+            SendMessage("TogglePlayerInRange");
         }
     }
     private void OnTriggerExit2D(Collider2D newPlayer)
@@ -50,6 +51,8 @@ public class EnemyMovement : MonoBehaviour
         {
             player = null;
             inRange = false;
+            SendMessage("TogglePlayerInRange");
+
         }
     }
 }

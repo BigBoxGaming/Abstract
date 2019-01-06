@@ -8,6 +8,9 @@ TagManager:
   - WallWalkLeft
   - WallWalkRight
   - Ceiling
+  - BossHealthMeter
+  - Enemy
+  - EnemyHitBox
   layers:
   - Default
   - TransparentFX
