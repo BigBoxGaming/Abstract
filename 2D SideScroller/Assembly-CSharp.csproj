@@ -55,15 +55,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EnemyMovement.cs" />
-    <Compile Include="Assets\EnemyStats.cs" />
-    <Compile Include="Assets\ProjectileAreaDamage.cs" />
-    <Compile Include="Assets\ProjectileMovement.cs" />
-    <Compile Include="Assets\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\PlayerAttack.cs" />
-    <Compile Include="Assets\SetUIElementToInactive.cs" />
-    <Compile Include="Assets\Sprites\PlayerController.cs" />
-    <Compile Include="Assets\Timer.cs" />
+    <Compile Include="Assets\Scripts\Attack Scripts\Attack.cs" />
+    <Compile Include="Assets\Scripts\Attack Scripts\AttackList.cs" />
+    <Compile Include="Assets\Scripts\Attack Scripts\PlayerAttack.cs" />
+    <Compile Include="Assets\Scripts\Attack Scripts\ProjectileAttack.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\EnemyAttackLoop.cs" />
+    <Compile Include="Assets\Scripts\EnemyHitBoxColliderChecks.cs" />
+    <Compile Include="Assets\Scripts\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\EnemyStats.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\ProjectileAreaDamage.cs" />
+    <Compile Include="Assets\Scripts\ProjectileMovement.cs" />
+    <Compile Include="Assets\Scripts\SetUIElementToInactive.cs" />
+    <Compile Include="Assets\Scripts\Stats.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Mike/Documents/GitHub/Abstract/2D SideScroller/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
