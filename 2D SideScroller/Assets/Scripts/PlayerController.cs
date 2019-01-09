@@ -210,14 +210,14 @@ public class PlayerController : MonoBehaviour
 
             _myRB.velocity = rightMovement;
 
-            FlipPlayerSprite();
+            
             goingRight = true;
         
 
         _myRB.velocity = rightMovement;
     }
 
-            else if (Input.GetKey(up) && (isGrounded || isRightWallWalking || isLeftWallWalking || isCeilingWalking))
+            if (Input.GetKey(up) && (isGrounded || isRightWallWalking || isLeftWallWalking || isCeilingWalking))
             {
                 if (goingLeft)
                 {
