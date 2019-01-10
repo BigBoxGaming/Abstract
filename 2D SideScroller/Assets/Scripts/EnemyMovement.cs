@@ -54,6 +54,7 @@ public class EnemyMovement : MonoBehaviour
             isClosestDistanceToPlayer = false;
             Debug.Log("entered");
             this.gameObject.SendMessage("TogglePlayerInRange");
+            SendMessage("AttackLoopSetPlayerInRange", newPlayer.gameObject);
         }
     }
     private void OnTriggerExit2D(Collider2D newPlayer)
@@ -62,7 +63,8 @@ public class EnemyMovement : MonoBehaviour
         {
             player = null;
             inRange = false;
-            SendMessage("TogglePlayerInRange");
+            this.gameObject.SendMessage("TogglePlayerInRange");
+            SendMessage("AttackLoopPlayerOutOfRange", newPlayer.gameObject);
 
         }
     }

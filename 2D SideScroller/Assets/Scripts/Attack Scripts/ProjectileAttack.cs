@@ -5,19 +5,25 @@ using UnityEngine;
 public class ProjectileAttack : Attack
 {
     
-    GameObject target;
     Rigidbody2D projectileRB;
 
     public int numberOfProjectiles;
     public float projectileSpeed;
+    public float areaDamagePerSec;
+    Vector3 targetPosition;
+    //Selections for Easy Monster Creation
     public bool isHoming;
     public bool isBullet;
+    public bool isShootAndStop;
+    public bool hasAreaEffectDamage;
 
 
     // Start is called before the first frame update
     void Start()
     {
         projectileRB = gameObject.GetComponent<Rigidbody2D>();
+        targetPosition = target.transform.position;
+        Debug.Log(targetPosition);
     }
 
     // Update is called once per frame
@@ -29,12 +35,9 @@ public class ProjectileAttack : Attack
         }
         else if(isBullet)
         {
-
+            //transform.position = Vector2.MoveTowards(transform.position, targetPosition, projectileSpeed * Time.deltaTime);
+            projectileRB.AddForce(Vector2.one);
+           
         }
-    }
-
-    public void SetTarget(GameObject newTarget)
-    {
-        target = newTarget;
     }
 }

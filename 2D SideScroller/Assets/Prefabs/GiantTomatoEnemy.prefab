@@ -382,6 +382,8 @@ GameObject:
   - component: {fileID: 3093025851679014649}
   - component: {fileID: 3093025851679014594}
   - component: {fileID: 3093025851679014653}
+  - component: {fileID: 1472911889300782953}
+  - component: {fileID: 595505260191784349}
   m_Layer: 0
   m_Name: GiantTomatoEnemy
   m_TagString: Untagged
@@ -507,8 +509,45 @@ MonoBehaviour:
   isClosestDistanceToPlayer: 0
   enemyClosestPositionToPlayer: 15
   jumpForce: 25
+  enemyShouldJumpNearPlayer: 0
   player: {fileID: 0}
   movementSpeed: 10.3
+  timeBetweenJumps: 0
+--- !u!114 &1472911889300782953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3093025851679014648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244308eabb852e54692fda2c3a48fd18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackList: []
+  target: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  currentAttack: {fileID: 0}
+--- !u!114 &595505260191784349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3093025851679014648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e914501374933a4581ad6b900269f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  level: 10
+  inRange: 0
+  enemyHealthBar: {fileID: 327389308987405404}
+  hasBossHealthBar: 1
+  bloodEffect: {fileID: 7628942950730844439, guid: 7457911c79f9d9443915831110887e04,
+    type: 3}
 --- !u!1 &4857954441733023738
 GameObject:
   m_ObjectHideFlags: 0
