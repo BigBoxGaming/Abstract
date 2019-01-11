@@ -8,7 +8,11 @@ public class EnemyStats : MonoBehaviour
 
     public float health;
     public float level;
-    public bool inRange = false;
+    private bool inRange = false;
+
+
+
+
     public GameObject enemyHealthBar;
     public bool hasBossHealthBar;
     private Slider slider;
@@ -68,6 +72,7 @@ public class EnemyStats : MonoBehaviour
     public void TogglePlayerInRange()
     {
         inRange = !inRange;
+
         if(inRange)
         {
             if (enemyHealthBar != null)
