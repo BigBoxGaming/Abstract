@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -27,17 +25,12 @@ public class CameraFollow : MonoBehaviour
     {
         currentRotation = gameObject.transform.eulerAngles.z;
     }
+
     // Update is called once per framed
     void Update()
     {
-
-
         var playerRotationDegrees = target.transform.eulerAngles.z;
         var cameraRotationDegrees = gameObject.transform.eulerAngles.z;
-
-
-
-
 
         if (grounded)
         {
@@ -55,7 +48,7 @@ public class CameraFollow : MonoBehaviour
 
                 }
             }
-            if (startRotationDegree == 0 && playerRotationDegrees == 90)
+            else if (startRotationDegree == 0 && playerRotationDegrees == 90)
             {
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
@@ -63,7 +56,7 @@ public class CameraFollow : MonoBehaviour
 
                 }
             }
-            if (startRotationDegree == 90 && playerRotationDegrees == 0)
+            else if (startRotationDegree == 90 && playerRotationDegrees == 0)
             {
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
@@ -71,7 +64,7 @@ public class CameraFollow : MonoBehaviour
 
                 }
             }
-            if (startRotationDegree == 90 && playerRotationDegrees == 180)
+            else if (startRotationDegree == 90 && playerRotationDegrees == 180)
             {
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
@@ -79,7 +72,7 @@ public class CameraFollow : MonoBehaviour
 
                 }
             }
-            if (startRotationDegree == 180 && playerRotationDegrees == 90)
+            else if (startRotationDegree == 180 && playerRotationDegrees == 90)
             {
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
@@ -87,7 +80,7 @@ public class CameraFollow : MonoBehaviour
 
                 }
             }
-            if (startRotationDegree == 180 && playerRotationDegrees == 270)
+            else if (startRotationDegree == 180 && playerRotationDegrees == 270)
             {
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
@@ -95,7 +88,7 @@ public class CameraFollow : MonoBehaviour
 
                 }
             }
-            if (startRotationDegree == 270 && playerRotationDegrees == 180)
+            else if (startRotationDegree == 270 && playerRotationDegrees == 180)
             {
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
@@ -103,7 +96,7 @@ public class CameraFollow : MonoBehaviour
 
                 }
             }
-            if (startRotationDegree == 270 && playerRotationDegrees == 0)
+            else if (startRotationDegree == 270 && playerRotationDegrees == 0)
             {
                 if (cameraRotationDegrees != playerRotationDegrees)
                 {
@@ -111,12 +104,13 @@ public class CameraFollow : MonoBehaviour
 
                 }
             }
+
             if (currentRotation % 360 == 0)
             {
                 gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
             }
 
-
+            #region Trippy Camera
             //if (playerRotationDegrees % 90 == 0)
             //{
             //    if (playerRotationDegrees - cameraRotationDegrees > 0)
@@ -138,17 +132,15 @@ public class CameraFollow : MonoBehaviour
             //        }
             //    }
             //}
-
+            #endregion
         }
-
 
         time += Time.deltaTime;
         Vector3 targetPosition = target.TransformPoint(new Vector3(0, 5, -10));
 
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
 
-
-
+        #region Trippy Camera 2
         //Strange camera effect Polish this and use for later. Slightly changing the rotation of the camera to match the player. Was tring to just change the y axis
 
         //if (time > timer)
@@ -164,15 +156,16 @@ public class CameraFollow : MonoBehaviour
         //        time = 0f;
         //    }
         //}
-
+        #endregion
     }
+
     public void SetGrounded()
     {
         grounded = true;
     }
+
     public void NotGrounded()
     {
         grounded = false;
     }
-
 }
